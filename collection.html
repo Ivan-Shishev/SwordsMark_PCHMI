@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Дирята на Меча</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style-border.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<div class="BorderDiv">
+		<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+		<div class="InnerBorder"></div>
+	</div>
+	<h1 class="FontVW MarginVW">Колекция</h1>
+	<div style="position: relative;">
+		<div style="display: inline-block; position: relative;">
+			<a class="SmallButton" data-open="sort">Сортиране</a>
+			<div id="sort" class="SortDropdown Z1">
+				<a href="collection.html?sort=name">А-Я</a>
+				<a href="collection.html?sort=rarity">Рядкост</a>
+				<a href="collection.html?sort=date">Дата</a>
+			</div>
+		</div>
+		<a class="SmallButton" data-open="SearchBox">Търсене</a>
+		<form id="SearchBox" class="PopupSearchBox" action="collection.html" method="GET">
+			<input name="search" type="text" />
+			<a onclick="SubmitSearch()">⌕</a>
+		</form>
+	</div>
+	<div class="Content">
+		<a class="Creature" href="creature.html?id=1">
+			<h2>Дворник</h2>
+			<img src="images/creatures/dvornik.jpg" />
+			<div>?</div>
+		</a>
+		<a class="Creature NotFound">
+			<h2>Не е намерен</h2>
+			<img src="images/creatures/notfound.png" />
+			<div>?</div>
+		</a>
+		<a class="Creature NotFound">
+			<h2>Не е намерен</h2>
+			<img src="images/creatures/notfound.png" />
+			<div>?</div>
+		</a>
+		<a class="Creature NotFound">
+			<h2>Не е намерен</h2>
+			<img src="images/creatures/notfound.png" />
+			<div>?</div>
+		</a>
+		<a class="Creature NotFound">
+			<h2>Не е намерен</h2>
+			<img src="images/creatures/notfound.png" />
+			<div>?</div>
+		</a>
+		<a class="Creature NotFound">
+			<h2>Не е намерен</h2>
+			<img src="images/creatures/notfound.png" />
+			<div>?</div>
+		</a>
+		<a class="Creature NotFound">
+			<h2>Не е намерен</h2>
+			<img src="images/creatures/notfound.png" />
+			<div>?</div>
+		</a>
+		<a class="Creature NotFound">
+			<h2>Не е намерен</h2>
+			<img src="images/creatures/notfound.png" />
+			<div>?</div>
+		</a>
+		<a class="Creature NotFound">
+			<h2>Не е намерен</h2>
+			<img src="images/creatures/notfound.png" />
+			<div>?</div>
+		</a>
+	</div>
+	<script>
+		const isVisible = "Visible";
+		const openEls = document.querySelectorAll("[data-open]");
+		for(const el of openEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.open;
+				const target = document.getElementById(modalId);
+				if(modalId == "sort")
+				{
+					target.classList.toggle(isVisible);
+				}
+				else
+				{
+					target.classList.add(isVisible);
+				}
+			});
+		};
+		document.addEventListener("click", e => {
+			if(e.target == document.querySelector(".Modal.Visible"))
+			{
+				e.target.classList.remove(isVisible);
+			}
+		});
+		document.addEventListener("keydown", e => {
+			if(e.key == "Escape")
+			{
+				document.querySelector(".Visible").classList.remove(isVisible);
+			}
+		});
+		const closeEls = document.querySelectorAll("[data-close]");
+		for(const el of closeEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.close;
+				document.getElementById(modalId).classList.remove(isVisible);
+			});
+		};
+		function SubmitSearch()
+		{
+			document.getElementById("SearchBox").submit();
+		}
+		var parts = window.location.search.substr(1).split("&");
+		var $_GET = {};
+		for (var i = 0; i < parts.length; i++) {
+			var temp = parts[i].split("=");
+			$_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+		}
+		if("search" in $_GET)
+		{
+			if($_GET["search"] != "")
+			{
+				document.getElementById("SearchBox").classList.add(isVisible);
+				document.querySelector(".PopupSearchBox input").value = $_GET["search"];
+				const creatures = document.querySelectorAll(".Creature");
+				for(mon of creatures)
+				{
+					if(!mon.querySelector("h2").innerHTML.toLowerCase().includes($_GET["search"].toLowerCase()))
+					{
+						mon.style.display = "none";
+					}
+				}
+			}
+		}
+	</script>
+</body>

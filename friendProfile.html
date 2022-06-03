@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Дирята на Меча</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style-border.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<div class="BorderDiv">
+		<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+		<div class="InnerBorder"></div>
+	</div>
+	<div id="friend1" class="Content">
+		<div class="ProfileImages">
+			<img class="ProfilePicture Rounded" src="images/avatarProfile.png" />
+		</div>
+		<h1 class="FontVW MarginVW">Димитър #1231</h1>
+		<div class="SeparatorFlex">Топ Постижения</div>
+		<div class="TopAchievements">
+			<div><img src="images/achievements/achievement01img.png" /></div>
+			<div><img src="images/achievements/achievement01img.png" /></div>
+			<div><img src="images/achievements/achievement01img.png" /></div>
+		</div>
+		<div class="SeparatorFlex">Любимо създание</div>
+		<img class="ProfilePicture Rounded" src="images/favCreature.png" />
+		<div style="margin-top: 5%">
+			<a class="SmallButton RedButton" data-open="removeFriendModal">Премахни приятел</a>
+		</div>
+	</div>
+	<div id="friend2" class="Content">
+		<div class="ProfileImages">
+			<img class="ProfilePicture Rounded" src="images/avatarProfile.png" />
+		</div>
+		<h1 class="FontVW MarginVW">Димитър #1337</h1>
+		<div class="SeparatorFlex">Топ Постижения</div>
+		<div class="TopAchievements">
+			<div><img src="images/achievements/achievement01img.png" /></div>
+			<div><img src="images/achievements/achievement01img.png" /></div>
+			<div><img src="images/achievements/achievement01img.png" /></div>
+		</div>
+		<div class="SeparatorFlex">Любимо създание</div>
+		<img class="ProfilePicture Rounded" src="images/favCreature.png" />
+		<div style="margin-top: 5%">
+			<a class="SmallButton RedButton" data-open="removeFriendModal">Премахни приятел</a>
+		</div>
+	</div>
+	<div id="errorMessage" class="FontVW Content">Имаше проблем при зараждането, моля върнете се назад и пробвайте отново</div>
+	<div id="removeFriendModal" class="Modal">
+		<div class="NewModalDialog SmallerDialog">
+			<a class="NewModalClose" data-close="removeFriendModal">✕</a>
+			<div class="Textbox">Сигурни ли сте че искате да махнете <span>Димитър #1231</span> от приятели?</div>
+			<div>
+				<a id="removeFriendButton" class="SmallButton RedButton Z1" href="friends.html?id=">Потвърждавам</a>
+				<a class="SmallButton Z1" data-close="removeFriendModal">Отказ</a>
+			</div>
+			<div class="BorderDiv Absolute">
+				<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+				<div class="InnerBorder"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		const isVisible = "Visible";
+		const openEls = document.querySelectorAll("[data-open]");
+		for(const el of openEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.open;
+				document.getElementById(modalId).classList.add(isVisible);
+			});
+		};
+		document.addEventListener("click", e => {
+			if(e.target == document.querySelector(".Modal.Visible"))
+			{
+				e.target.classList.remove(isVisible);
+			}
+		});
+		document.addEventListener("keydown", e => {
+			if(e.key == "Escape")
+			{
+				document.querySelector(".Modal.Visible").classList.remove(isVisible);
+			}
+		});
+		const closeEls = document.querySelectorAll("[data-close]");
+		for(const el of closeEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.close;
+				document.getElementById(modalId).classList.remove(isVisible);
+			});
+		};
+		var parts = window.location.search.substr(1).split("&");
+		var $_GET = {};
+		for (var i = 0; i < parts.length; i++) {
+			var temp = parts[i].split("=");
+			$_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+		}
+		document.getElementById("removeFriendButton").href = "friends.html?id=" + $_GET["id"];
+		var contents = document.querySelectorAll(".Content");
+		for(const el of contents)
+		{
+			el.style.display = "none";
+		}
+		if("id" in $_GET)
+		{
+			var friend = document.getElementById("friend"+$_GET["id"]);
+			if(friend)
+			{
+				friend.classList.add(isVisible);
+			}
+			else
+			{
+				document.getElementById("errorMessage").classList.add(isVisible);
+			}
+		}
+		else
+		{
+			document.getElementById("errorMessage").classList.add(isVisible);
+		}
+	</script>
+</body>

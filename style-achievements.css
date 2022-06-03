@@ -1,0 +1,117 @@
+.AchievementImage
+{
+	width: 200px;
+	background-attachment: local;
+	background-position: 35px 55px;
+	background-repeat: no-repeat;
+}
+
+.AchievementImage:hover
+{
+	background-image: url("images/achievementHoverHD.png");
+}
+
+.AchievementText
+{
+	display: none;
+	opacity: 0;
+}
+
+#modalAchievementImage
+{
+	margin-top: -50px;
+	width: 350px;
+}
+
+.ModalShareDiv
+{
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: 25px;
+	white-space: nowrap;
+	z-index: 1;
+}
+
+.ShareButton
+{
+	background-color: #83C5AC;
+	border: solid #7C3406 3px;
+	border-radius: 10px;
+	font-size: 50px;
+	color: #000;
+	box-sizing: border-box;
+	position: relative;
+	padding: 12px 12px 0px 12px;
+}
+
+.ShareButton:hover
+{
+	background-color: #7C3406;
+	border-color: #83C5AC;
+	color: #fff;
+}
+
+.ShareButton img
+{
+	width: 45px;
+}
+
+.ShareButton .TopImg
+{
+	position: absolute;
+	top: 12px;
+}
+
+.ShareButton:hover .TopImg
+{
+	visibility: hidden;
+	opacity: 0;
+}
+
+@media only screen and (max-width: 800px)
+{
+	.AchievementImage
+	{
+		width: 142px;
+		background-attachment: local;
+		background-position: 22px 40px;
+		background-repeat: no-repeat;
+	}
+
+	.AchievementImage:hover
+	{
+		background-image: url("images/achievementHover.png");
+	}
+	
+	#modalAchievementImage
+	{
+		width: 250px;
+	}
+
+	.ModalShareDiv
+	{
+		margin-bottom: 25px;
+	}
+
+	.ModalShare
+	{
+		border: solid #7C3406 2px;
+		border-radius: 5px;
+		font-size: 30px;
+		color: #000;
+		padding: 4px 4px 0px 4px;
+	}
+	
+	.ModalShare img
+	{
+		width: 25px;
+	}
+
+	.ModalShare .TopImg
+	{
+		position: absolute;
+		top: 8px;
+	}
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Дирята на Меча</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style-border.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<div id="challenge1" class="Content Z1">
+		<img src="images/creatures/dvornikSquare.jpg" class="ProfilePicture Rounded " />
+		<div class="ChallengeText">
+			Кои земи обхваща избухналото през 1903 година Илинденско-Преображенско въстание?
+		</div>
+		<table class="AnswerTable">
+			<tr><td><a class="Answer">Македония и Западните покрайнини</a></td></tr>
+			<tr><td><a class="Answer">Западните покрайнини и Беломорието</a></td></tr>
+			<tr><td><a class="Answer">Македония и Одринско</a></td></tr>
+			<tr><td><a class="Answer">Добричко и Бесарабия</a></td></tr>
+		</table>
+	</div>
+	<div class="BorderDiv">
+		<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+		<div class="InnerBorder"></div>
+	</div>
+	<script>
+		const challengeNum = 3;
+		var parts = window.location.search.substr(1).split("&");
+		var $_GET = {};
+		for (var i = 0; i < parts.length; i++) {
+			var temp = parts[i].split("=");
+			$_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+		}
+		var contents = document.querySelectorAll(".Content");
+		for(const el of contents)
+		{
+			el.style.display = "none";
+		}
+		//const challengeId = Math.floor(Math.random() * challengeNum) + 1;
+		const challengeId = 1;
+		document.getElementById("challenge"+challengeId).classList.add("Visible");
+	</script>
+</body>

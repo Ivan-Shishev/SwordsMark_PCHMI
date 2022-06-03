@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Дирята на Меча</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style-border.css" />
+	<link rel="stylesheet" type="text/css" href="style-achievements.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<div class="BorderDiv">
+		<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+		<div class="InnerBorder"></div>
+	</div>
+	<div class="Content">
+		<h1 class="FontVW">Постижения</h1>	
+		<ul class="ItemList">
+			<li data-open="achievement01" data-name="Маратон"><img class="AchievementImage" src="images/achievements/achievement01.png" /></li>
+			<li data-open="achievement02" data-name="Открити създания"><img class="AchievementImage" src="images/achievements/achievement02.png" /></li>
+			<li data-open="achievement03" data-name="Вампири"><img class="AchievementImage" src="images/achievements/achievement03.png" /></li>
+			<li data-open="achievement04" data-name="Растения"><img class="AchievementImage" src="images/achievements/achievement04.png" /></li>
+			<li data-open="achievement05" data-name="Музеи"><img class="AchievementImage" src="images/achievements/achievement05.png" /></li>
+			<li data-open="achievement06" data-name="Демони"><img class="AchievementImage" src="images/achievements/achievement06.png" /></li>
+		</ul>
+	</div>
+	<div class="Modal" id="achievementModal">
+		<div class="ModalDialog">
+			<button class="ModalClose" data-close="">×</button>
+			<h1 id="modalTitle">n/a</h1>
+			<img id="modalAchievementImage" src="images/achievements/achievement01.png" />
+			<div id="achievement01" class="AchievementText">
+				<p>Ach 1</p>
+			</div>
+			<div id="achievement02" class="AchievementText">
+				<p>Ach 2</p>
+			</div>
+			<div id="achievement03" class="AchievementText">
+				<p>Ach 3</p>
+			</div>
+			<div id="achievement04" class="AchievementText">
+				<p>Ach 4</p>
+			</div>
+			<div class="ModalShareDiv">
+				<a class="ShareButton">Сподели</a>
+				<a class="ShareButton"><img class="TopImg" src="images/shareBlack.png" /><img src="images/shareWhite.png" /></a>
+			</div>		
+			<div class="BorderDiv AbsolutePos ModalBackground">
+				<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+				<div class="InnerBorder AbsolutePos"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		const openEls = document.querySelectorAll("[data-open]");
+		const isVisible = "Visible";
+		for(const el of openEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.open;
+				document.getElementById("achievementModal").classList.add(isVisible);
+				document.getElementById("modalAchievementImage").src = this.firstChild.src;
+				document.getElementById("modalTitle").innerHTML = this.dataset.name;
+				document.getElementById(modalId).classList.add(isVisible);
+			});
+		};
+		const closeEls = document.querySelectorAll("[data-close]");
+		for(const el of closeEls)
+		{
+			el.addEventListener("click", function(){
+				closeModal();
+			});
+		};
+		document.addEventListener("click", e => {
+			if(e.target == document.querySelector(".Modal.Visible"))
+			{
+				closeModal();
+			}
+		});
+		document.addEventListener("keyup", e => {
+			if(e.key == "Escape" && document.querySelector(".Modal.Visible"))
+			{
+				closeModal();
+			}
+		});
+		function closeModal()
+		{
+			const modalSelected = document.querySelector(".Modal.Visible");
+			modalSelected.classList.remove("Visible");
+			modalSelected.querySelector(".Visible").classList.remove(isVisible);
+		};
+	</script>
+</body>

@@ -1,0 +1,75 @@
+.BorderDiv 
+{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0);
+	z-index: 0;
+	display: block;
+	border: 3px solid black;
+	box-sizing: border-box;
+}
+
+.CornerDecoration
+{
+	position: absolute;
+	width: 50px;
+}
+
+.CornerDecoration.CornerTopLeft
+{
+	left: 0;
+	top: 0;
+}
+
+.CornerDecoration.CornerTopRight
+{
+	right: 0;
+	top: 0;
+	transform: scaleX(-1);
+}
+
+.CornerDecoration.CornerBotLeft
+{
+	left: 0;
+	bottom: 0;
+	transform: scaleY(-1);
+}
+
+.CornerDecoration.CornerBotRight
+{
+	right: 0;
+	bottom: 0;
+	transform: scale(-1);
+}
+
+.InnerBorder
+{
+	box-sizing: border-box;
+	margin: 10px;
+	width: calc(100%-10px);
+	height: calc(100%-10px);
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: fixed;
+	background: linear-gradient(to bottom, #000 2px, transparent 2px, transparent calc(100% - 2px), black calc(100% - 2px)) no-repeat, linear-gradient(to left, #000 2px, transparent 2px, transparent calc(100% - 2px), black calc(100% - 2px)) no-repeat;
+	background-position: center;
+	background-size: calc(100% - 85px) 100%, 100% calc(100% - 85px);
+	/*z-index: 0;*/
+}
+
+.AbsolutePos
+{
+	position: absolute;
+}
+
+.BorderBackground
+{
+	background-color: #D7C699;
+}

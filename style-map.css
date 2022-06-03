@@ -1,0 +1,131 @@
+.Controls a
+{
+	background-color: #684B2C;
+	border: 1px solid black;
+	display: block;
+	width: 8vw;
+	height: 8vw;
+	position: relative;
+	touch-action: manipulation;
+	user-select: none;
+}
+
+.Controls a:hover
+{
+	background-color: #F3C78D;
+}
+
+.Controls a:hover .Arrow
+{
+	border-color: #684B2C;
+}
+
+.Controls span
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+body
+{
+	background-image: url("images/map.png");
+	background-position: -260vw -130vw;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 640vw 400vw;
+	overflow: hidden;
+}
+
+.MapAvatar
+{
+	width: 80%;
+	z-index: 2;
+	position: relative;
+	cursor: pointer;
+}
+
+.MenuDialog
+{
+	width: 30%;
+	text-align: left;
+	padding-bottom: 25px;
+}
+
+.MenuDialog a
+{
+	display: block;
+	border-color: black;
+	border-width: 1px 0px 0px 0px;
+	border-style: solid;
+	padding: 5px 0px;
+	background-color: transparent;
+	position: relative;
+	z-index: 1;
+	width: calc(100% - 25px);
+	text-align: left;
+	font-size: 3vw;
+	box-sizing: border-box;
+}
+
+.MenuDialog a:hover
+{
+	background-color: #9A7955;
+	color: #fff;
+}
+
+.Menu
+{
+	display: none;
+	opacity: 0;
+}
+
+.MenuOffset
+{
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.PlayerIconContainer
+{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.PlayerIconContainer div
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.PlayerIconContainer .Arrow
+{
+	padding: 5vw;
+	border-color: black;
+}
+
+.PlayerIcon
+{
+	height: 10vw;
+	width: 10vw;
+	border: solid black 2px;
+}
+
+.CreatureIcon
+{
+	height: 10vw;
+	width: 10vw;
+	border: solid grey 2px;
+}
+
+.MapCreature
+{
+	position: absolute;
+	top: -50vw; 
+	left: -50vw;
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Дирята на Меча</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style-map.css" />
+	<link rel="stylesheet" type="text/css" href="style-border.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<div class="PlayerIconContainer Z1">
+		<img src="images/avatarProfile.png" class="PlayerIcon Rounded Z1 Relative" />
+		<div><i id="playerArrow" class="Arrow ButtonLeft"></i></div>
+	</div>
+	<a href="challenge.html?x=-260&y=-130" id="creature1" class="MapCreature">
+		<img src="images/creatures/dvornikSquare.jpg" class="CreatureIcon Rounded" />
+	</a>
+	<a href="challenge.html?x=-260&y=-130" id="creature2" class="MapCreature" style="top: 50vw; left: 50vw;">
+		<img src="images/creatures/dvornikSquare.jpg" class="CreatureIcon Rounded" />
+	</a>
+	<a href="challenge.html?x=-260&y=-130" id="creature3" class="MapCreature">
+		<img src="images/creatures/dvornikSquare.jpg" class="CreatureIcon Rounded" />
+	</a>
+	<table class="Controls TopRight">
+		<tr>
+			<td></td>
+			<td><a onclick="moveUp()"><span><i class="Arrow ButtonUp"></i></span></a></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a onclick="moveLeft()"><span><i class="Arrow ButtonLeft"></i></span></a></td>
+			<td></td>
+			<td><a onclick="moveRight()"><span><i class="Arrow ButtonRight"></i></span></a></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a onclick="moveDown()"><span><i class="Arrow ButtonDown"></i></span></a></td>
+			<td></td>
+		</tr>
+	</table>
+	<div class="MenuDialog TopLeft">
+		<img class="MapAvatar" data-open="menu" src="images/avatar.png" />
+		<div id="menu" class="Menu MenuOffset">
+			<div style="margin-left: 25px">
+				<a href="profile.html">Профил</a>
+				<a href="friends.html">Приятели</a>
+				<a href="collection.html">Колекция</a>
+				<a data-open="stepcounter">Крачкомер</a>
+				<a href="profile.html">Червени Зони</a>
+				<a data-open="sonic">Скорост</a>
+			</div>
+			<div class="BorderDiv AbsolutePos BorderBackground MenuOffset">
+				<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+				<div class="InnerBorder AbsolutePos"></div>
+			</div>
+		</div>
+	</div>
+	<div id="stepcounter" class="Modal">
+		<div class="ModalDialog">
+			<div class="BorderDiv AbsolutePos ModalBackground">
+				<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+				<div class="InnerBorder AbsolutePos"></div>
+			</div>
+		</div>
+	</div>
+	<div id="sonic" class="Modal">
+		<div class="ModalDialog">
+			<div class="BorderDiv AbsolutePos ModalBackground">
+				<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+				<div class="InnerBorder AbsolutePos"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var backgroundX = -260, backgroundY = -130;
+		function Creature(id, X, Y)
+		{
+			this.id = id;
+			this.X = X;
+			this.Y = Y;
+		}
+		var creatures = [new Creature("creature1", -50, -50), new Creature("creature2", 50, 50), new Creature("creature3", 150, 150)];
+		const moveSpeed = 10;
+		function moveUp()
+		{
+			move(0, moveSpeed);
+		};
+		function moveRight()
+		{
+			move(-moveSpeed, 0);
+		};
+		function moveDown()
+		{
+			move(0, -moveSpeed);
+		};
+		function moveLeft()
+		{
+			move(moveSpeed, 0);
+		};
+		function move(x, y)
+		{
+			backgroundX += x;
+			backgroundY += y;
+			document.body.style.backgroundPositionX = backgroundX + 'vw';
+			document.body.style.backgroundPositionY = backgroundY + 'vw';
+			const arrow = document.getElementById("playerArrow");
+			arrow.classList.remove("ButtonUp");
+			arrow.classList.remove("ButtonRight");
+			arrow.classList.remove("ButtonLeft");
+			arrow.classList.remove("ButtonDown");
+			if(x == 0)
+			{
+				if(y > 0)
+					arrow.classList.add("ButtonUp");
+				else
+					arrow.classList.add("ButtonDown");
+			}
+			else
+			{
+				if(x > 0)
+					arrow.classList.add("ButtonLeft");
+				else
+					arrow.classList.add("ButtonRight");
+			}
+			for(creature of creatures)
+			{
+				creature.X += x;
+				creature.Y += y;
+				const temp = document.getElementById(creature.id);
+				temp.style.left = creature.X + "vw";
+				temp.style.top = creature.Y + "vw";
+				temp.href = "challenge.html?x=" + backgroundX + "&y=" + backgroundY;
+			}
+		}
+		const isVisible = "Visible";
+		const openEls = document.querySelectorAll("[data-open]");
+		for(const el of openEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.open;
+				const modalSelected = document.getElementById(modalId);
+				if(modalId != "menu")
+				{
+					modalSelected.classList.add(isVisible);
+				}
+				else
+				{
+					if(modalSelected.classList.contains(isVisible))
+					{
+						modalSelected.classList.remove(isVisible);
+					}
+					else
+					{
+						modalSelected.classList.add(isVisible);
+					}
+				}
+			});
+		};
+		document.addEventListener("click", e => {
+			if(e.target == document.querySelector(".Modal.Visible"))
+			{
+				e.target.classList.remove(isVisible);
+			}
+		});
+		document.addEventListener("keydown", e => {
+			if(e.key == "Escape")
+			{
+				var visibleEls = document.querySelectorAll(".Visible")
+				if(visibleEls.length > 1)
+				{
+					visibleEls[1].classList.remove(isVisible);
+				}
+				else
+				{
+					visibleEls[0].classList.remove(isVisible);
+				}
+			}
+			else if(e.key == "w" || e.key == "ArrowUp")
+			{
+				moveUp();
+			}
+			else if(e.key == "s" || e.key == "ArrowDown")
+			{
+				moveDown();
+			}
+			else if(e.key == "a" || e.key == "ArrowLeft")
+			{
+				moveLeft();
+			}
+			else if(e.key == "d" || e.key == "ArrowRight")
+			{
+				moveRight();
+			}
+		});
+	</script>
+</body>
+</html>

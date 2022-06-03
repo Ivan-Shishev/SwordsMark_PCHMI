@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Дирята на Меча</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style-border.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<div class="BorderDiv">
+		<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+		<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+		<div class="InnerBorder"></div>
+	</div>
+	<div class="Content">
+		<h1 class="FontVW MarginVW">Приятели</h1>
+		<a class="TopRightButton AddFriendButton Rounded" data-open="addFriendModal"><img src="images/addfriendiconWhite.png" /><img class="TopIcon" src="images/addfriendicon.png" /></a>
+		<div class="Scrollable">
+			<div id="friends" class="FriendsList">
+				<div id="friend1" class="Friend">
+					<a href="friendProfile.html?id=1"><img class="Rounded" src="images/avatarProfile.png" /></a>
+					<div class="FriendNameTag">
+						<h2>Димитър #1231</h2>
+						<div class="OnlineIndicator"></div>
+					</div>
+				</div>
+				<div id="friend2" class="Friend" data-open="locationModal">
+					<a href="friendProfile.html?id=2" class="HasNotification"><div class="LocationNotification Rounded"></div><img class="Rounded" src="images/avatarProfile.png" /></a>
+					<div class="FriendNameTag">
+						<h2>Димитър #1231</h2>
+						<div class="OnlineIndicator Off"></div>
+					</div>
+				</div>
+				<div id="friend3" class="Friend">
+					<a href="friendProfile.html?id=3"><img class="Rounded" src="images/avatarProfile.png" /></a>
+					<div class="FriendNameTag">
+						<h2>Димитър #1231</h2>
+						<div class="OnlineIndicator Off"></div>
+					</div>
+				</div>
+				<div id="friend4" class="Friend">
+					<a href="friendProfile.html?id=4"><img class="Rounded" src="images/avatarProfile.png" /></a>
+					<div class="FriendNameTag">
+						<h2>Димитър #1231</h2>
+						<div class="OnlineIndicator Off"></div>
+					</div>
+				</div>
+			</div>
+			<div class="SeparatorFlex">Покани</div>
+			<div id="waitlist" class="FriendsList">
+				<div id="waiting1" class="Friend">
+					<a href="friendProfile.html?id=5"><img class="Rounded" src="images/avatarProfile.png" /></a>
+					<div class="FriendNameTag">
+						<h2>Димитър #1231</h2>
+						<div class="OnlineIndicator"></div>
+					</div>
+					<div class="FriendButtonContainer">
+						<a onclick='AcceptFriend("waiting1")'><div class="FriendButton Rounded">✓</div></a>
+						<a onclick='RejectFriend("waiting1")'><div class="FriendButton Decline Rounded">✕</div></a>
+					</div>
+				</div>
+			</div>
+			<div class="EmptyWaitList">
+				<p>Нямате чакащи покани за приятелство в момента.</p>
+			</div>
+		</div>
+	</div>
+	<div id="addFriendModal" class="Modal">
+		<div class="NewModalDialog">
+			<a class="NewModalClose" data-close="addFriendModal">✕</a>
+			<img src="images/qrcode.png" class="QRCode" />
+			<div class="QRCodeText">Приятелите ти могат да сканират този QR код, за да ти изпрятат покана за приятелство!</div>
+			<div class="SeparatorFlex">Добави приятел</div>
+			<input type="text" placeholder="Примерно Име #1234" />
+			<a class="FriendRequestButton" onclick="SendRequest()">Изпрати покана за приятелство</a>
+			<div class="BorderDiv Absolute">
+				<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+				<div class="InnerBorder"></div>
+			</div>
+		</div>
+	</div>
+	<div id="locationModal" class="Modal">
+		<div class="NewModalDialog SmallDialog">
+			<a class="NewModalClose" data-close="locationModal">✕</a>
+			<img class="QRCode Rounded" src="images/sharedLocationCreature.png" />
+			<div class="QRCodeText">Димитър #1231 сподели локацията на Караконджул с вас. Побързайте натам ако искате да го хванете преди да избяга!</div>
+			<a href="index.html?x=50&y=35" class="SmallButton Z2">Покажи на картата!</a>
+			<div class="BorderDiv Absolute">
+				<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+				<div class="InnerBorder"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function AcceptFriend(friendId)
+		{
+			var newFriend = document.getElementById(friendId);
+			newFriend.querySelector(".FriendButtonContainer").style.display = "none";
+			document.getElementById("friends").appendChild(newFriend);
+			CheckWaiting();
+		};
+		function RejectFriend(friendId)
+		{
+			document.getElementById(friendId).style.display = "none";
+			CheckWaiting();
+		};
+		function CheckWaiting()
+		{
+			var waiting = document.querySelectorAll("#waitlist .Friend");
+			if(waiting.length < 2)
+			{
+				document.querySelector(".EmptyWaitList").classList.add("Visible");
+			}
+		};
+		const isVisible = "Visible";
+		const openEls = document.querySelectorAll("[data-open]");
+		for(const el of openEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.open;
+				document.getElementById(modalId).classList.add(isVisible);
+				if(modalId == "locationModal")
+				{
+					RemoveNotification(this);
+				}
+			});
+		};
+		document.addEventListener("click", e => {
+			if(e.target == document.querySelector(".Modal.Visible"))
+			{
+				e.target.classList.remove(isVisible);
+			}
+		});
+		document.addEventListener("keydown", e => {
+			if(e.key == "Escape")
+			{
+				document.querySelector(".Modal.Visible").classList.remove(isVisible);
+			}
+		});
+		const closeEls = document.querySelectorAll("[data-close]");
+		for(const el of closeEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.close;
+				document.getElementById(modalId).classList.remove(isVisible);
+			});
+		};
+		async function SendRequest()
+		{
+			var sendButton = document.querySelector(".FriendRequestButton");
+			sendButton.classList.add("FriendRequestSent");
+			sendButton.innerHTML = "Изпратена";
+			sendButton.parentElement.querySelector("input").disabled = true;
+			await sleep(1000);
+			document.querySelector(".Modal.Visible").classList.remove(isVisible);
+			sendButton.classList.remove("FriendRequestSent");
+			sendButton.innerHTML = "Изпрати покана за приятелство";
+			sendButton.parentElement.querySelector("input").disabled = false;
+		};
+		function sleep(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		};
+		function RemoveNotification(el)
+		{
+			el.querySelector("a").classList.remove("HasNotification");
+			el.querySelector("a div").style.display = "none";
+			el.removeAttribute("data-open");
+		};
+		var parts = window.location.search.substr(1).split("&");
+		var $_GET = {};
+		for (var i = 0; i < parts.length; i++) {
+			var temp = parts[i].split("=");
+			$_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+		}
+		if("id" in $_GET)
+		{
+			var friend = document.getElementById("friend"+$_GET["id"]);
+			if(friend)
+			{
+				friend.style.display = "none";
+			}
+		}
+	</script>
+</body>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Дирята на Меча</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style-border.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<div id="creature1" class="CreatureContent">
+		<a class="CreatureButton CBHide Z1 Rounded Visible" onclick="ToggleFullCreature()"><div><i class="Arrow ButtonDown"></i></div></a>
+		<a class="CreatureButton CBShow Z1 Rounded" onclick="ToggleFullCreature()"><div><i class="Arrow ButtonUp"></i></div></a>
+		<img src="images/creatures/dvornikSmall.jpg" class="CreatureSmallImage Visible" />
+		<img src="images/creatures/dvornik.jpg" class="CreatureFullImage" />
+		<div class="CreatureProfile Z1 Relative Visible">
+			<h1 class="FontVW MarginVW">Дворник</h1>
+			<div class="CreatureDescription">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam hendrerit luctus metus in interdum. Morbi rutrum imperdiet ante, fermentum vehicula odio luctus non. Donec urna odio, laoreet ut velit ut, commodo mollis felis. Fusce eleifend lacus in luctus sagittis. Phasellus faucibus libero tempus sollicitudin malesuada. Pellentesque ac elit eu ligula venenatis sagittis eget vitae enim. Suspendisse posuere sollicitudin condimentum. In hac habitasse platea dictumst. Donec enim eros, luctus a massa rutrum, cursus molestie elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur ut nulla eleifend, aliquam arcu in, rhoncus mi.
+
+				Praesent et turpis in dui facilisis vestibulum. Etiam maximus viverra metus, quis consectetur erat vestibulum in. Integer a lorem nunc. Vestibulum iaculis consequat venenatis. Cras viverra leo sed viverra mattis. Phasellus et justo diam. Quisque eros arcu, tristique a enim sit amet, egestas euismod orci.
+
+				Donec lobortis urna odio, quis fringilla sem venenatis pretium. Nullam quis finibus nulla. Duis lobortis dui eros, in congue ipsum feugiat eu. Integer dignissim bibendum molestie. Nam vitae consectetur arcu. Nunc eu arcu vel mi sagittis vulputate. Praesent felis lacus, tempor vitae tellus sit amet, blandit feugiat ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+
+				Pellentesque blandit malesuada risus quis mollis. Duis congue ipsum velit, sed pretium felis sagittis non. Praesent pellentesque mollis venenatis. Etiam ut felis a tortor fermentum auctor at eu metus. Etiam dapibus malesuada imperdiet. Donec commodo bibendum est, eget ullamcorper purus ultrices in. Nullam nibh purus, mattis a mollis sed, vulputate rutrum mauris.
+
+				Integer rutrum tincidunt tincidunt. Proin vestibulum libero suscipit massa bibendum, ut scelerisque augue dignissim. Sed ut nisi in ipsum bibendum pretium. Cras commodo mollis quam. Mauris eleifend viverra pharetra. Sed dapibus nunc nisi, nec condimentum leo cursus euismod. Nulla lectus dolor, egestas et vehicula ac, accumsan quis mauris. Nunc mattis purus nibh, ut pellentesque mi elementum sed. Donec non luctus justo. Vivamus molestie enim id dolor dapibus, sollicitudin hendrerit mi interdum. Fusce non augue urna. Aenean eget mi id justo viverra imperdiet. Maecenas sit amet tellus diam. Vivamus in dapibus mi. Vestibulum justo est, mattis non enim sit amet, pellentesque auctor odio. Maecenas eros nisi, auctor et lacinia blandit, aliquet vestibulum ligula.
+			</div>
+			<table class="DateFound">
+				<tr>
+					<td class="AlignTextLeft">Намерен на:</td>
+					<td class="AlignTextRight">30.03.2022</td>
+				</tr>
+			</table>
+			<a class="CreatureProfileButtons FavouriteCreatureButton Rounded" data-open="favouriteCreatureModal">♡</a>
+			<a class="CreatureProfileButtons CreatureSoundButton Rounded" data-play="creatureSound1">🕪</a>
+			<audio id="creatureSound1" src="audio/Creature1.mp3" preload="auto" type="audio/mpeg"></audio>
+		</div>
+		<div class="BorderDiv">
+			<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+			<div class="InnerBorder"></div>
+		</div>
+	</div>
+	<div id="errorMessage" class="FontVW CreatureContent">
+		Имаше проблем при зараждането, моля върнете се назад и пробвайте отново
+		<div class="BorderDiv">
+			<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+			<div class="InnerBorder"></div>
+		</div>
+	</div>
+	<div id="favouriteCreatureModal" class="Modal">
+		<div class="NewModalDialog SmallerDialog">
+			<a class="NewModalClose" data-close="favouriteCreatureModal">✕</a>
+			<div class="Textbox">Сигурни ли сте, че искате да промените любимото си създание?</div>
+			<div>
+				<a id="favouriteCreatureButton" class="SmallButton RedButton Z1" href="profile.html?id=">Потвърждавам</a>
+				<a class="SmallButton Z1" data-close="favouriteCreatureModal">Отказ</a>
+			</div>
+			<div class="BorderDiv">
+				<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+				<div class="InnerBorder"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		const isVisible = "Visible";
+		const openEls = document.querySelectorAll("[data-open]");
+		for(const el of openEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.open;
+				document.getElementById(modalId).classList.add(isVisible);
+			});
+		};
+		document.addEventListener("click", e => {
+			if(e.target == document.querySelector(".Modal.Visible"))
+			{
+				e.target.classList.remove(isVisible);
+			}
+		});
+		document.addEventListener("keydown", e => {
+			if(e.key == "Escape")
+			{
+				document.querySelector(".Modal.Visible").classList.remove(isVisible);
+			}
+		});
+		const closeEls = document.querySelectorAll("[data-close]");
+		for(const el of closeEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.close;
+				document.getElementById(modalId).classList.remove(isVisible);
+			});
+		};
+		const playEls = document.querySelectorAll("[data-play]");
+		for(const el of playEls)
+		{
+			el.addEventListener("click", function(){
+				const audioId = this.dataset.play;
+				document.getElementById(audioId).play();
+			});
+		}
+		var parts = window.location.search.substr(1).split("&");
+		var $_GET = {};
+		for (var i = 0; i < parts.length; i++) {
+			var temp = parts[i].split("=");
+			$_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+		}
+		var contents = document.querySelectorAll(".CreatureContent");
+		for(const el of contents)
+		{
+			el.style.display = "none";
+		}
+		if("id" in $_GET)
+		{
+			var creature = document.getElementById("creature"+$_GET["id"]);
+			document.getElementById("favouriteCreatureButton").href += $_GET["id"];
+			if(creature)
+			{
+				creature.classList.add(isVisible);
+			}
+			else
+			{
+				document.getElementById("errorMessage").classList.add(isVisible);
+			}
+		}
+		else
+		{
+			document.getElementById("errorMessage").classList.add(isVisible);
+		}
+		function ToggleFullCreature()
+		{
+			const current = document.getElementById("creature"+$_GET["id"]);
+			current.querySelector(".CreatureProfile").classList.toggle(isVisible);
+			current.querySelector(".CreatureSmallImage").classList.toggle(isVisible);
+			current.querySelector(".CreatureFullImage").classList.toggle(isVisible);
+			current.querySelector(".CBHide").classList.toggle(isVisible);
+			current.querySelector(".CBShow").classList.toggle(isVisible);
+		}
+	</script>
+</body>
