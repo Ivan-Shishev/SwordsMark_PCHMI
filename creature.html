@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8" />
 	<title>Дирята на Меча</title>
@@ -44,11 +45,261 @@
 		</div>
 		<div class="BorderDiv">
 			<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+
+	<div id="creature2" class="CreatureContent">
+		<a class="CreatureButton CBHide Z1 Rounded Visible" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonDown"></i></div>
+		</a>
+		<a class="CreatureButton CBShow Z1 Rounded" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonUp"></i></div>
+		</a>
+		<img src="images/creatures/KikimoraSmall.jpg" class="CreatureSmallImage Visible" />
+		<img src="images/creatures/Kikimora.jpg" class="CreatureFullImage" />
+		<div class="CreatureProfile Z1 Relative Visible">
+			<h1 class="FontVW MarginVW">Кикимора</h1>
+			<div class="CreatureDescription">
+				Домашен женски дух, често отъждествяван с Домницата. Съвсем в дуалистичния контрастен дух на славянската
+				вяра, кикимората едновременно помага и вреди на хората, като по традиция всичко зависи от тях самите.
+				Така, ако домакинята поддържа усърдно дома си, кикимората по цели нощи ще върши от домакинската работа
+				за другия ден, ще вдъхва доволство и спокоен сън на децата, но ако домакинята е немарлива, мързелива,
+				кикимората ще стене от здрач до зори, ще дърпа косите на децата, ще ги буди посред нощ и ще ги плаши,
+				нарочно ще пакости, разхвърля и мърси, така че и малкото свършена работа да отиде нахалост. </div>
+			<table class="DateFound">
+				<tr>
+					<td class="AlignTextLeft">Намерен на:</td>
+					<td class="AlignTextRight">30.03.2022</td>
+				</tr>
+			</table>
+			<a class="CreatureProfileButtons FavouriteCreatureButton Rounded" data-open="favouriteCreatureModal">♡</a>
+			<a class="CreatureProfileButtons CreatureSoundButton Rounded" data-play="creatureSound1">🕪</a>
+			<audio id="creatureSound1" src="audio/Creature1.mp3" preload="auto" type="audio/mpeg"></audio>
+		</div>
+		<div class="BorderDiv">
+			<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
 			<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
 			<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
 			<div class="InnerBorder"></div>
 		</div>
 	</div>
+
+	<div id="creature3" class="CreatureContent">
+		<a class="CreatureButton CBHide Z1 Rounded Visible" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonDown"></i></div>
+		</a>
+		<a class="CreatureButton CBShow Z1 Rounded" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonUp"></i></div>
+		</a>
+		<img src="images/creatures/zmeiSmall.jpg" class="CreatureSmallImage Visible" />
+		<img src="images/creatures/zmei.jpg" class="CreatureFullImage" />
+		<div class="CreatureProfile Z1 Relative Visible">
+			<h1 class="FontVW MarginVW">Змей</h1>
+			<div class="CreatureDescription">
+				Огромно огнедишащо чудовище подобно на дракон. Змеят е висша зла сила, пратеник на мрака, който се
+				стреми да разруши установения от божествения закон – Правда. </div>
+			<table class="DateFound">
+				<tr>
+					<td class="AlignTextLeft">Намерен на:</td>
+					<td class="AlignTextRight">30.11.2021</td>
+				</tr>
+			</table>
+			<a class="CreatureProfileButtons FavouriteCreatureButton Rounded" data-open="favouriteCreatureModal">♡</a>
+			<a class="CreatureProfileButtons CreatureSoundButton Rounded" data-play="creatureSound1">🕪</a>
+			<audio id="creatureSound1" src="audio/Creature1.mp3" preload="auto" type="audio/mpeg"></audio>
+		</div>
+		<div class="BorderDiv">
+			<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+			<div class="InnerBorder"></div>
+		</div>
+	</div>
+
+	<div id="creature4" class="CreatureContent">
+		<a class="CreatureButton CBHide Z1 Rounded Visible" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonDown"></i></div>
+		</a>
+		<a class="CreatureButton CBShow Z1 Rounded" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonUp"></i></div>
+		</a>
+		<img src="images/creatures/karakondjulSmall.jpg" class="CreatureSmallImage Visible" />
+		<img src="images/creatures/karakondjul.jpg" class="CreatureFullImage" />
+		<div class="CreatureProfile Z1 Relative Visible">
+			<h1 class="FontVW MarginVW">Караконджул</h1>
+			<div class="CreatureDescription">
+				Караконджулите са нощни духове. Явяват се във форма на ниски кривокраки човечета, с голям нос, изпъкнали
+				очи и тяло покрито с козина, които скитат по пътищата след полунощ. Често седят край кръстовища и
+				заговарят окъснели пътници, като им задават гатанки или ги молят за услуги. Ако човек се отнесе с
+				внимание и добронамереност към тях, караконджулите могат да му помогнат, иначе му причиняват злини.
+			</div>
+			<table class="DateFound">
+				<tr>
+					<td class="AlignTextLeft">Намерен на:</td>
+					<td class="AlignTextRight">30.11.2021</td>
+				</tr>
+			</table>
+			<a class="CreatureProfileButtons FavouriteCreatureButton Rounded" data-open="favouriteCreatureModal">♡</a>
+			<a class="CreatureProfileButtons CreatureSoundButton Rounded" data-play="creatureSound1">🕪</a>
+			<audio id="creatureSound1" src="audio/Creature1.mp3" preload="auto" type="audio/mpeg"></audio>
+		</div>
+		<div class="BorderDiv">
+			<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+			<div class="InnerBorder"></div>
+		</div>
+	</div>
+
+	<div id="creature5" class="CreatureContent">
+		<a class="CreatureButton CBHide Z1 Rounded Visible" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonDown"></i></div>
+		</a>
+		<a class="CreatureButton CBShow Z1 Rounded" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonUp"></i></div>
+		</a>
+		<img src="images/creatures/poludnicaSmall.jpg" class="CreatureSmallImage Visible" />
+		<img src="images/creatures/poludnica.jpg" class="CreatureFullImage" />
+		<div class="CreatureProfile Z1 Relative Visible">
+			<h1 class="FontVW MarginVW">Полудница</h1>
+			<div class="CreatureDescription">Жесток полски дух с вид на красива млада жена в чисто бяла ленена риза.
+				Изцяло бялата дреха сред славяните е символ на траур, и в този смисъл на смъртта. Полудница идва от
+				“полу” и “ден”, което подкрепя поверието, че тя се появява само по пладне, в средата на деня, което
+				време от денонощието се счита за също толкова опасно и неблагоприятно, колкото и полунощ.
+			</div>
+			<table class="DateFound">
+				<tr>
+					<td class="AlignTextLeft">Намерен на:</td>
+					<td class="AlignTextRight">15.08.2021</td>
+				</tr>
+			</table>
+			<a class="CreatureProfileButtons FavouriteCreatureButton Rounded" data-open="favouriteCreatureModal">♡</a>
+			<a class="CreatureProfileButtons CreatureSoundButton Rounded" data-play="creatureSound1">🕪</a>
+			<audio id="creatureSound1" src="audio/Creature1.mp3" preload="auto" type="audio/mpeg"></audio>
+		</div>
+		<div class="BorderDiv">
+			<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+			<div class="InnerBorder"></div>
+		</div>
+	</div>
+
+	<div id="creature6" class="CreatureContent">
+		<a class="CreatureButton CBHide Z1 Rounded Visible" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonDown"></i></div>
+		</a>
+		<a class="CreatureButton CBShow Z1 Rounded" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonUp"></i></div>
+		</a>
+		<img src="images/creatures/vodnikSmall.jpg" class="CreatureSmallImage Visible" />
+		<img src="images/creatures/vodnik.jpg" class="CreatureFullImage" />
+		<div class="CreatureProfile Z1 Relative Visible">
+			<h1 class="FontVW MarginVW">Водник</h1>
+			<div class="CreatureDescription">Водник (Воденик, Водяной, Водяник, Wodzanoy) в славянската митология е дух
+				— господар на реки, потоци и извори. Водникът е повелител на русалките. Често вреди на хората.
+				Водниците рядко излизат от водата и най-често обитават водите около воденици. Според народните вярвания
+				те са зеленикави дребни старци, покрити с блатна трева, вместо окосмяване. Водникът е мнителен и
+				претенциозен, изисква специално уважение. Ако не го получи — поврежда водениците, разгонва рибата, а
+				понякога посяга и на човешкия живот.
+			</div>
+			<table class="DateFound">
+				<tr>
+					<td class="AlignTextLeft">Намерен на:</td>
+					<td class="AlignTextRight">16.08.2021</td>
+				</tr>
+			</table>
+			<a class="CreatureProfileButtons FavouriteCreatureButton Rounded" data-open="favouriteCreatureModal">♡</a>
+			<a class="CreatureProfileButtons CreatureSoundButton Rounded" data-play="creatureSound1">🕪</a>
+			<audio id="creatureSound1" src="audio/Creature1.mp3" preload="auto" type="audio/mpeg"></audio>
+		</div>
+		<div class="BorderDiv">
+			<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+			<div class="InnerBorder"></div>
+		</div>
+	</div>
+
+	<div id="creature7" class="CreatureContent">
+		<a class="CreatureButton CBHide Z1 Rounded Visible" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonDown"></i></div>
+		</a>
+		<a class="CreatureButton CBShow Z1 Rounded" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonUp"></i></div>
+		</a>
+		<img src="images/creatures/rusalkaSmall.jpg" class="CreatureSmallImage Visible" />
+		<img src="images/creatures/rusalka.jpg" class="CreatureFullImage" />
+		<div class="CreatureProfile Z1 Relative Visible">
+			<h1 class="FontVW MarginVW">Русалка </h1>
+			<div class="CreatureDescription">Русалка — в славянската митология, воден женски дух, тясно свързан с
+				фолклора на съвременните славянски народи и със славянската обредност .
+				Русалките обикновено седят по бреговете на реки и езера. Когато късат косите си, предизвикват
+				наводнения. Ако изсъхне кожата им, умират завинаги. Обикновено русалки стават душите на удавени
+				момичета, убити и хвърлени в река или завлечени под водата от речния дух водник. Той е техен господар,
+				но тайно те го мразят и понякога помагат на хора, за да объркат плановете му.
+			</div>
+			<table class="DateFound">
+				<tr>
+					<td class="AlignTextLeft">Намерен на:</td>
+					<td class="AlignTextRight">20.08.2021</td>
+				</tr>
+			</table>
+			<a class="CreatureProfileButtons FavouriteCreatureButton Rounded" data-open="favouriteCreatureModal">♡</a>
+			<a class="CreatureProfileButtons CreatureSoundButton Rounded" data-play="creatureSound1">🕪</a>
+			<audio id="creatureSound1" src="audio/Creature1.mp3" preload="auto" type="audio/mpeg"></audio>
+		</div>
+		<div class="BorderDiv">
+			<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+			<div class="InnerBorder"></div>
+		</div>
+	</div>
+
+
+	<div id="creature8" class="CreatureContent">
+		<a class="CreatureButton CBHide Z1 Rounded Visible" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonDown"></i></div>
+		</a>
+		<a class="CreatureButton CBShow Z1 Rounded" onclick="ToggleFullCreature()">
+			<div><i class="Arrow ButtonUp"></i></div>
+		</a>
+		<img src="images/creatures/ovinnikSmall.jpg" class="CreatureSmallImage Visible" />
+		<img src="images/creatures/ovinnik.jpg" class="CreatureFullImage" />
+		<div class="CreatureProfile Z1 Relative Visible">
+			<h1 class="FontVW MarginVW">Овинник </h1>
+			<div class="CreatureDescription">Овинникът е митологична фигура от славянската митология.
+				Той е дух, който живее в плевнята, обора, хамбара, кокошарника или други селскостопански сгради. Има вид
+				на огромна черна котка с големина на куче и горящи като въглен очи. Овинникът има много сложен характер
+				и е враждебен към човека, но се грижи за складираните зърно и слама. Селяните се стремят да не го
+				разсърдят, защото тогава животните ще престанат да дават яйца и мляко.
+			</div>
+			<table class="DateFound">
+				<tr>
+					<td class="AlignTextLeft">Намерен на:</td>
+					<td class="AlignTextRight">20.08.2021</td>
+				</tr>
+			</table>
+			<a class="CreatureProfileButtons FavouriteCreatureButton Rounded" data-open="favouriteCreatureModal">♡</a>
+			<a class="CreatureProfileButtons CreatureSoundButton Rounded" data-play="creatureSound1">🕪</a>
+			<audio id="creatureSound1" src="audio/Creature1.mp3" preload="auto" type="audio/mpeg"></audio>
+		</div>
+		<div class="BorderDiv">
+			<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+			<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+			<div class="InnerBorder"></div>
+		</div>
+	</div>
+
+
+
 	<div id="errorMessage" class="FontVW CreatureContent">
 		Имаше проблем при зараждането, моля върнете се назад и пробвайте отново
 		<div class="BorderDiv">
