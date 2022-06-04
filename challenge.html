@@ -10,16 +10,16 @@
 	<link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet"> 
 </head>
 <body>
+	<img src="images/creatures/dvornikSquare.jpg" class="ProfilePicture Rounded " />
 	<div id="challenge1" class="Content Z1">
-		<img src="images/creatures/dvornikSquare.jpg" class="ProfilePicture Rounded " />
 		<div class="ChallengeText">
 			Кои земи обхваща избухналото през 1903 година Илинденско-Преображенско въстание?
 		</div>
 		<table class="AnswerTable">
-			<tr><td><a class="Answer">Македония и Западните покрайнини</a></td></tr>
-			<tr><td><a class="Answer">Западните покрайнини и Беломорието</a></td></tr>
-			<tr><td><a class="Answer">Македония и Одринско</a></td></tr>
-			<tr><td><a class="Answer">Добричко и Бесарабия</a></td></tr>
+			<tr><td><a href="index.html" class="Answer Yes">Македония и Западните покрайнини</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Западните покрайнини и Беломорието</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Македония и Одринско</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Добричко и Бесарабия</a></td></tr>
 		</table>
 	</div>
 	<div class="BorderDiv">
@@ -30,7 +30,6 @@
 		<div class="InnerBorder"></div>
 	</div>
 	<script>
-		const challengeNum = 3;
 		var parts = window.location.search.substr(1).split("&");
 		var $_GET = {};
 		for (var i = 0; i < parts.length; i++) {
@@ -38,12 +37,20 @@
 			$_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
 		}
 		var contents = document.querySelectorAll(".Content");
+		const challengeId = Math.floor(Math.random() * contents.length) + 1;
 		for(const el of contents)
 		{
 			el.style.display = "none";
 		}
-		//const challengeId = Math.floor(Math.random() * challengeNum) + 1;
-		const challengeId = 1;
 		document.getElementById("challenge"+challengeId).classList.add("Visible");
+		const links = document.getElementById("challenge"+challengeId).querySelectorAll("a");
+		for(const l of links)
+		{
+			l.href = l.href + "?x=" + $_GET["x"] + "&y=" + $_GET["y"] + "&id=" + $_GET["id"];
+			if(l.classList.contains("Yes"))
+			{
+				l.href = l.href + "&success=1";
+			}
+		}
 	</script>
 </body>

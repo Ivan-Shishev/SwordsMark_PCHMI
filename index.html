@@ -15,13 +15,13 @@
 		<img src="images/avatarProfile.png" class="PlayerIcon Rounded Z1 Relative" />
 		<div><i id="playerArrow" class="Arrow ButtonLeft"></i></div>
 	</div>
-	<a href="challenge.html?x=-260&y=-130" id="creature1" class="MapCreature">
+	<a href="challenge.html?x=-260&y=-130&id=creature1" id="creature1" data-creature="1" data-name="Дворник" class="MapCreature">
 		<img src="images/creatures/dvornikSquare.jpg" class="CreatureIcon Rounded" />
 	</a>
-	<a href="challenge.html?x=-260&y=-130" id="creature2" class="MapCreature" style="top: 50vw; left: 50vw;">
+	<a href="challenge.html?x=-260&y=-130&id=creature2" id="creature2" data-creature="1" data-name="Дворник" class="MapCreature" style="top: 50vw; left: 50vw;">
 		<img src="images/creatures/dvornikSquare.jpg" class="CreatureIcon Rounded" />
 	</a>
-	<a href="challenge.html?x=-260&y=-130" id="creature3" class="MapCreature">
+	<a href="challenge.html?x=-260&y=-130&id=creature3" id="creature3" data-creature="1" data-name="Дворник" class="MapCreature">
 		<img src="images/creatures/dvornikSquare.jpg" class="CreatureIcon Rounded" />
 	</a>
 	<table class="Controls TopRight">
@@ -83,6 +83,23 @@
 			</div>
 		</div>
 	</div>
+	<div id="successModal" class="Modal">
+		<div class="NewModalDialog SmallDialog">
+			<a class="NewModalClose" data-close="successModal">✕</a>
+			<img class="QRCode Rounded" src="images/sharedLocationCreature.png" />
+			<div class="QRCodeText">Поздравления! Хванахте <span id="successCreature">N/A</span>!</div>
+			<div class="SuccessButtonContainer">
+				<a id="successCollection" href="collection.html" class="SmallButton Z2">Покажи в колекция</a>
+				<a data-close="successModal" class="SmallButton Z2">Продължи на картата</a>
+			</div>
+			<div class="BorderDiv Absolute">
+				<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
+				<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
+				<div class="InnerBorder"></div>
+			</div>
+		</div>
+	</div>
 	<script>
 		var backgroundX = -260, backgroundY = -130;
 		function Creature(id, X, Y)
@@ -141,7 +158,7 @@
 				const temp = document.getElementById(creature.id);
 				temp.style.left = creature.X + "vw";
 				temp.style.top = creature.Y + "vw";
-				temp.href = "challenge.html?x=" + backgroundX + "&y=" + backgroundY;
+				temp.href = "challenge.html?x=" + backgroundX + "&y=" + backgroundY + "&id=" + temp.id;
 			}
 		}
 		const isVisible = "Visible";
@@ -204,6 +221,36 @@
 				moveRight();
 			}
 		});
+		const closeEls = document.querySelectorAll("[data-close]");
+		for(const el of closeEls)
+		{
+			el.addEventListener("click", function(){
+				const modalId = this.dataset.close;
+				document.getElementById(modalId).classList.remove(isVisible);
+			});
+		};
+		var parts = window.location.search.substr(1).split("&");
+		var $_GET = {};
+		for (var i = 0; i < parts.length; i++) {
+			var temp = parts[i].split("=");
+			$_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+		}
+		if("x" in $_GET && "y" in $_GET)
+		{
+			move($_GET["x"]-backgroundX, $_GET["y"]-backgroundY)
+		}
+		if("id" in $_GET)
+		{
+			document.getElementById($_GET["id"]).style.display = "none";
+		}
+		if("success" in $_GET)
+		{
+			success = document.getElementById("successModal");
+			success.classList.add("Visible");
+			success.querySelector(".QRCode").src = document.getElementById($_GET["id"]).querySelector("img").src;
+			document.getElementById("successCreature").innerHTML = document.getElementById($_GET["id"]).dataset.name;
+			document.getElementById("successCollection").href = "collection.html?id=" + document.getElementById($_GET["id"]).dataset.creature;
+		}
 	</script>
 </body>
 </html>

@@ -774,7 +774,7 @@ hr
 
 .Answer
 {
-	color: white;
+	color: inherit;
 }
 
 .AnswerTable td
@@ -783,18 +783,32 @@ hr
 	border-radius: 20px;
 	height: 14vw;
 	font-size: 6vw;
+	color: white;
 }
 
 .AnswerTable td:hover
 {
 	background-color: #83C5AC;
+	color: black;
 }
 
 .AnswerTable
 {
 	width: 90%;
-	margin: 4% 5%;
+	margin: 2vw 5%;
 	border-spacing: 0 2vw;
+}
+
+.SuccessButtonContainer
+{
+	display: flex; 
+	flex-flow: column;
+	margin-top: -2vw;
+}
+
+.SuccessButtonContainer a
+{
+	margin: 0.5vw;
 }
 
 @media only screen and (max-width: 800px)
