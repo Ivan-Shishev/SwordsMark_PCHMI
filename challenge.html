@@ -10,6 +10,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet"> 
 </head>
 <body>
+	<a class="NewModalClose" href="index.html">
+		<img src="images/backArrowRed.png" />
+		<img class="TopImg" src="images/backArrow.png" />
+	</a>
 	<img src="images/creatures/dvornikSquare.jpg" class="ProfilePicture Rounded " />
 	<div id="challenge1" class="Content Z1">
 		<div class="ChallengeText">
@@ -24,7 +28,6 @@
 	</div>
 	<div class="BorderDiv">
 		<img class="CornerDecoration CornerTopLeft" src="images/borderCornerDecoration.png" />
-		<img class="CornerDecoration CornerTopRight" src="images/borderCornerDecoration.png" />
 		<img class="CornerDecoration CornerBotLeft" src="images/borderCornerDecoration.png" />
 		<img class="CornerDecoration CornerBotRight" src="images/borderCornerDecoration.png" />
 		<div class="InnerBorder"></div>
@@ -52,5 +55,6 @@
 				l.href = l.href + "&success=1";
 			}
 		}
+		document.querySelector(".NewModalClose").href = "index.html?x=" + $_GET["x"] + "&y=" + $_GET["y"];
 	</script>
 </body>
