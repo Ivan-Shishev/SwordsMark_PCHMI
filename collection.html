@@ -74,7 +74,7 @@
 		</a>
 		<a class="Creature" href="creature.html?id=4">
 			<h2>Караконджул</h2>
-			<img src="images/creatures/karakondjul.jpg" />
+			<img src="images/creatures/karakondjul.png" />
 			<div>?</div>
 		</a>
 		<a class="Creature" href="creature.html?id=5">
@@ -184,6 +184,11 @@
 					}
 				}
 			}
+		}
+		if("id" in $_GET)
+		{
+			document.getElementById("creature"+$_GET["id"]).classList.add("Glowing");
+			document.getElementById("creature"+$_GET["id"]).classList.remove("NotFound");
 		}
 	</script>
 </body>

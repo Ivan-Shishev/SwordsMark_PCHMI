@@ -825,6 +825,12 @@ hr
 	display: none;
 }
 
+.Glowing
+{
+	border-color: #FEDD7C;
+	-webkit-box-shadow: 0 0 1vw 0.5vw #FEDD7C;
+	box-shadow: 0px 0px 1vw 0.5vw #FEDD7C;
+}
 @media only screen and (max-width: 800px)
 {
 	.ModalDialog
