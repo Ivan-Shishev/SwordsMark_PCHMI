@@ -32,7 +32,7 @@
 			<div><img src="images/achievements/achievement01img.png" /></div>
 		</div>
 		<div class="SeparatorFlex">Любимо създание</div>
-		<img class="ProfilePicture Rounded" src="images/favCreature.png" />
+		<img class="ProfilePicture Rounded" src="images/creatures/ovinnikSquare.jpg" />
 		<div style="margin-top: 5%">
 			<a class="SmallButton RedButton" data-open="removeFriendModal">Премахни приятел</a>
 		</div>
@@ -49,7 +49,58 @@
 			<div><img src="images/achievements/achievement01img.png" /></div>
 		</div>
 		<div class="SeparatorFlex">Любимо създание</div>
-		<img class="ProfilePicture Rounded" src="images/favCreature.png" />
+		<img class="ProfilePicture Rounded" src="images/creatures/KikimoraSquare.jpg" />
+		<div style="margin-top: 5%">
+			<a class="SmallButton RedButton" data-open="removeFriendModal">Премахни приятел</a>
+		</div>
+	</div>
+	<div id="friend3" class="Content">
+		<div class="ProfileImages">
+			<img class="ProfilePicture Rounded" src="images/avatarMira.jpg" />
+		</div>
+		<h1 class="FontVW MarginVW">Мира #8329</h1>
+		<div class="SeparatorFlex">Топ Постижения</div>
+		<div class="TopAchievements">
+			<div><img src="images/achievements/achievement01img.png" /></div>
+			<div><img src="images/achievements/achievement01img.png" /></div>
+			<div><img src="images/achievements/achievement01img.png" /></div>
+		</div>
+		<div class="SeparatorFlex">Любимо създание</div>
+		<img class="ProfilePicture Rounded" src="images/creatures/rusalkaSquare.jpg" />
+		<div style="margin-top: 5%">
+			<a class="SmallButton RedButton" data-open="removeFriendModal">Премахни приятел</a>
+		</div>
+	</div>
+	<div id="friend4" class="Content">
+		<div class="ProfileImages">
+			<img class="ProfilePicture Rounded" src="images/avatarDimitar.jpg" />
+		</div>
+		<h1 class="FontVW MarginVW">Димитър #6783</h1>
+		<div class="SeparatorFlex">Топ Постижения</div>
+		<div class="TopAchievements">
+			<div><img src="images/achievements/achievement01img.png" /></div>
+			<div><img src="images/achievements/achievement01img.png" /></div>
+			<div><img src="images/achievements/achievement01img.png" /></div>
+		</div>
+		<div class="SeparatorFlex">Любимо създание</div>
+		<img class="ProfilePicture Rounded" src="images/creatures/zmeiSquare.jpg" />
+		<div style="margin-top: 5%">
+			<a class="SmallButton RedButton" data-open="removeFriendModal">Премахни приятел</a>
+		</div>
+	</div>
+	<div id="friend5" class="Content">
+		<div class="ProfileImages">
+			<img class="ProfilePicture Rounded" src="images/avatarKatya.jpg" />
+		</div>
+		<h1 class="FontVW MarginVW">Кати #3817</h1>
+		<div class="SeparatorFlex">Топ Постижения</div>
+		<div class="TopAchievements">
+			<div><img src="images/achievements/achievement01img.png" /></div>
+			<div><img src="images/achievements/achievement01img.png" /></div>
+			<div><img src="images/achievements/achievement01img.png" /></div>
+		</div>
+		<div class="SeparatorFlex">Любимо създание</div>
+		<img class="ProfilePicture Rounded" src="images/creatures/ovinnikSquare.jpg" />
 		<div style="margin-top: 5%">
 			<a class="SmallButton RedButton" data-open="removeFriendModal">Премахни приятел</a>
 		</div>
@@ -119,6 +170,7 @@
 			if(friend)
 			{
 				friend.classList.add(isVisible);
+				document.getElementById("removeFriendModal").querySelector(".Textbox span").innerHTML = friend.querySelector("h1.FontVW").innerHTML;
 			}
 			else
 			{
