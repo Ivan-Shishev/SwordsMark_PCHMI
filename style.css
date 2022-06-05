@@ -569,6 +569,11 @@ hr
 	display: none;
 }
 
+.Creature h2:first-child
+{
+	display: none;
+}
+
 .Creature.NotFound
 {
 	pointer-events: none;
@@ -591,6 +596,16 @@ hr
 	left: 0;
 	right: 0;
 	bottom: 0;
+	display: block;
+}
+
+.Creature.NotFound h2:nth-child(2)
+{
+	display: none;
+}
+
+.Creature.NotFound h2:nth-child(1)
+{
 	display: block;
 }
 

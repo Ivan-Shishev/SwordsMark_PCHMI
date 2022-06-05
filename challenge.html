@@ -20,10 +20,65 @@
 			Кои земи обхваща избухналото през 1903 година Илинденско-Преображенско въстание?
 		</div>
 		<table class="AnswerTable">
-			<tr><td><a href="index.html" class="Answer Yes">Македония и Западните покрайнини</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Македония и Западните покрайнини</a></td></tr>
 			<tr><td><a href="index.html" class="Answer">Западните покрайнини и Беломорието</a></td></tr>
-			<tr><td><a href="index.html" class="Answer">Македония и Одринско</a></td></tr>
+			<tr><td><a href="index.html" class="Answer Yes">Македония и Одринско</a></td></tr>
 			<tr><td><a href="index.html" class="Answer">Добричко и Бесарабия</a></td></tr>
+		</table>
+	</div>
+	<div id="challenge2" class="Content Z1">
+		<div class="ChallengeText">
+			Каква е съдбата на Иванко – убиецът на цар Асен I?
+		</div>
+		<table class="AnswerTable">
+			<tr><td><a href="index.html" class="Answer">Убит е от царската охрана</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Жени се за вдовицата на убития цар</a></td></tr>
+			<tr><td><a href="index.html" class="Answer Yes">Става управител на Пловдивска област</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Бяга при куманите</a></td></tr>
+		</table>
+	</div>
+	<div id="challenge3" class="Content Z1">
+		<div class="ChallengeText">
+			Първият препис на „История славянобългарска“ прави...
+		</div>
+		<table class="AnswerTable">
+			<tr><td><a href="index.html" class="Answer">Йосиф Брадати</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Христофор Жефарович</a></td></tr>
+			<tr><td><a href="index.html" class="Answer Yes">Софроний Врачански</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Неофит Рилски</a></td></tr>
+		</table>
+	</div>
+	<div id="challenge4" class="Content Z1">
+		<div class="ChallengeText">
+			Кои български градове се превръщат в центрове на новите книжовно-просветни средища по времето на княз Борис I?
+		</div>
+		<table class="AnswerTable">
+			<tr><td><a href="index.html" class="Answer">Охрид и Плиска</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Велики Преслав и Средец</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Филипопол и Плиска</a></td></tr>
+			<tr><td><a href="index.html" class="Answer Yes">Велики Преслав и Охрид</a></td></tr>
+		</table>
+	</div>
+	<div id="challenge5" class="Content Z1">
+		<div class="ChallengeText">
+			Кой от следните автори е написал „Епопея на забравените“?
+		</div>
+		<table class="AnswerTable">
+			<tr><td><a href="index.html" class="Answer">Йордан Йовков</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Ангел Каралийчев</a></td></tr>
+			<tr><td><a href="index.html" class="Answer Yes">Иван Вазов</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">Христо Смирненски</a></td></tr>
+		</table>
+	</div>
+	<div id="challenge6" class="Content Z1">
+		<div class="ChallengeText">
+			Кое от произведенията е на Георги Господинов?
+		</div>
+		<table class="AnswerTable">
+			<tr><td><a href="index.html" class="Answer">„Животът не струва пари“</a></td></tr>
+			<tr><td><a href="index.html" class="Answer Yes">„Живот в скалите“</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">„Физика на тъгата“</a></td></tr>
+			<tr><td><a href="index.html" class="Answer">"На изток от запада"</a></td></tr>
 		</table>
 	</div>
 	<div class="BorderDiv">
@@ -39,6 +94,7 @@
 			var temp = parts[i].split("=");
 			$_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
 		}
+		document.querySelector(".ProfilePicture").src = "images/creatures/" + $_GET["pic"];
 		var contents = document.querySelectorAll(".Content");
 		const challengeId = Math.floor(Math.random() * contents.length) + 1;
 		for(const el of contents)
