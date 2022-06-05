@@ -85,7 +85,7 @@
 				<a href="friends.html">Приятели</a>
 				<a href="collection.html">Колекция</a>
 				<a data-open="stepcounter">Крачкомер</a>
-				<a href="redzone.html">Червени Зони</a>
+				<a id="redzone" href="redzone.html?x=-260&y=-130">Червени Зони</a>
 				<a data-open="sonic">Скорост</a>
 			</div>
 			<div class="BorderDiv AbsolutePos BorderBackground MenuOffset">
@@ -199,6 +199,7 @@
 				temp.style.top = creature.Y + "vw";
 				temp.href = "challenge.html?x=" + backgroundX + "&y=" + backgroundY + "&id=" + temp.id + "&pic=" + temp.firstElementChild.src.split("/").pop();
 			}
+			document.getElementById("redzone").href = "redzone.html?x=" + backgroundX + "&y=" + backgroundY;
 		}
 		const isVisible = "Visible";
 		const openEls = document.querySelectorAll("[data-open]");

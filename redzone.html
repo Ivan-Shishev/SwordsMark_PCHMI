@@ -158,7 +158,8 @@
 		}
 		if("x" in $_GET && "y" in $_GET)
 		{
-			move($_GET["x"]-backgroundX, $_GET["y"]-backgroundY)
+			move($_GET["x"]-backgroundX, $_GET["y"]-backgroundY);
+			document.querySelector(".NewModalClose").href += "?x=" + $_GET["x"] + "&y=" + $_GET["y"];
 		}
 		function ToggleCheck(radioBut)
 		{
